@@ -66,6 +66,16 @@ map
 cassert
 -
 
+/home/halli/Documents/TurboPascal/lexer.cpp
+iostream
+-
+cassert
+-
+common.h
+/home/halli/Documents/TurboPascal/common.h
+lexer.h
+/home/halli/Documents/TurboPascal/lexer.h
+
 /home/halli/Documents/TurboPascal/lexer.h
 istream
 -

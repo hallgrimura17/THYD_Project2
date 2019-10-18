@@ -12,7 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c7f85c9-bdfd-42c2-a1e7-88e6d0456abf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hparser.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/hparser.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -135,7 +134,7 @@
       <workItem from="1571103727150" duration="2948000" />
       <workItem from="1571128439428" duration="4285000" />
       <workItem from="1571132754098" duration="541000" />
-      <workItem from="1571329888511" duration="6105000" />
+      <workItem from="1571329888511" duration="6723000" />
     </task>
     <servers />
   </component>

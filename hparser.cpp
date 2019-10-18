@@ -403,7 +403,7 @@ WhileStmtNode* HParser::while_statement() {
 
 VariableExprNode* HParser::variable_rvalue(SymbolTable::Entry& entry ) {
   /* TO DO: Implement ... */
-  return new variable();
+  return nullptr;
 }
 
 
