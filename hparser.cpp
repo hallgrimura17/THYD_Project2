@@ -134,7 +134,7 @@ VariableNode* HParser::variable_lvalue(SymbolTable::Entry& entry, const string& 
     expr = expression();
     match_token(LNG::TN::t_rbracket);
   }
-  return new VariableNode(variable_name, nullptr);
+  return new VariableNode(variable_name, expr);
 }
 
 
@@ -342,9 +342,7 @@ VariableDeclarationsNode* HParser::optional_parameters() {
 
 
 VariableDeclNode* HParser::parameter_list() {
-  /* TO DO: Implement ... */
-  /* Note that in all methods that you are to implement, you most likely have to change the return value. */
-  return nullptr;
+  return variable_declaration();
 }
 
 
@@ -354,15 +352,13 @@ FunctionDeclNode* HParser::function_declaration() {
   scope_ = identifier;
   match_token(LNG::TN::t_identifier);
   auto params = optional_parameters();
-  symbol_table_.add_function(identifier, params->get_declarations());   // TO DO: Implement ... set signature
-  match_token(LNG::TN::t_semicolon);
-  auto simple_type_ = simple_type();
+  symbol_table_.add_procedure(identifier, "");   // TO DO: Implement ... set signature
   match_token(LNG::TN::t_semicolon);
   auto block_node = block();
+  auto simple_type = type();
   match_token(LNG::TN::t_semicolon);
   scope_ = "";
-  
-  return new FunctionDeclNode(identifier, params, simple_type_, block_node);
+  return new FunctionDeclNode(identifier, params, block_node, simple_type);
   /* TO DO: Implement ... */
   /* Note that in all methods that you are to implement, you most likely have to change the return value. */
 
@@ -397,15 +393,17 @@ ProcedureCallStmtNode* HParser::procedure_call_statement(const string &identifie
 }
 
 WhileStmtNode* HParser::while_statement() {
-  /* TO DO: Implement ... */
-  /* Note that in all methods that you are to implement, you most likely have to change the return value. */
-  return nullptr;
+  match_token(LNG::TN::t_while);
+  auto expr = expression();
+  match_token(LNG::TN::t_do);
+  auto stmt = statement();
+  return new WhileStmtNode(expr, stmt);
 }
 
 
 VariableExprNode* HParser::variable_rvalue(SymbolTable::Entry& entry ) {
   /* TO DO: Implement ... */
-  return nullptr;
+  return new variable();
 }
 
 
