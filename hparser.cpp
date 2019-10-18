@@ -349,7 +349,19 @@ VariableDeclNode* HParser::parameter_list() {
 
 
 FunctionDeclNode* HParser::function_declaration() {
-
+  match_token(LNG::TN::t_function);
+  string identifier(token_.text);
+  scope_ = identifier;
+  match_token(LNG::TN::t_identifier);
+  auto params = optional_parameters();
+  symbol_table_.add_function(identifier, params->get_declarations());   // TO DO: Implement ... set signature
+  match_token(LNG::TN::t_semicolon);
+  auto simple_type_ = simple_type();
+  match_token(LNG::TN::t_semicolon);
+  auto block_node = block();
+  match_token(LNG::TN::t_semicolon);
+  scope_ = "";
+  return new FunctionDeclNode(identifier, params, simple_type_, block_node);
   /* TO DO: Implement ... */
   /* Note that in all methods that you are to implement, you most likely have to change the return value. */
 
