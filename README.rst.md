@@ -1,5 +1,5 @@
 - [ ] Appendix	- Grammar
-- [ ] ## <program> ::= program <identifier> ; <main	block> .
+- [ ] <program> ::= program <identifier> ; <main	block> .
 - [ ] <main	block> ::= <variable	declarations> <callable declarations> <statements>
 - [ ] <variable	declarations> ::= 		<empty>
 |	var	<variable	declaration> ; {	<variable	declaration> ; }
