@@ -24,20 +24,6 @@ algorithm
 exception
 -
 
-/home/halli/Documents/TurboPascal/hparser.cpp
-string
--
-list
--
-map
--
-ast.h
-/home/halli/Documents/TurboPascal/ast.h
-hparser.h
-/home/halli/Documents/TurboPascal/hparser.h
-memory
--
-
 /home/halli/Documents/TurboPascal/hparser.h
 string
 -
@@ -66,16 +52,6 @@ map
 cassert
 -
 
-/home/halli/Documents/TurboPascal/lexer.cpp
-iostream
--
-cassert
--
-common.h
-/home/halli/Documents/TurboPascal/common.h
-lexer.h
-/home/halli/Documents/TurboPascal/lexer.h
-
 /home/halli/Documents/TurboPascal/lexer.h
 istream
 -
@@ -83,6 +59,24 @@ common.h
 /home/halli/Documents/TurboPascal/common.h
 language.h
 /home/halli/Documents/TurboPascal/language.h
+
+/home/halli/Documents/TurboPascal/main.cpp
+iostream
+-
+fstream
+-
+iomanip
+-
+language.h
+/home/halli/Documents/TurboPascal/language.h
+hparser.h
+/home/halli/Documents/TurboPascal/hparser.h
+ast.h
+/home/halli/Documents/TurboPascal/ast.h
+print_visitor.h
+/home/halli/Documents/TurboPascal/print_visitor.h
+sa_visitor.h
+/home/halli/Documents/TurboPascal/sa_visitor.h
 
 /home/halli/Documents/TurboPascal/parser.h
 iostream
@@ -92,8 +86,22 @@ string
 ast.h
 /home/halli/Documents/TurboPascal/ast.h
 
+/home/halli/Documents/TurboPascal/print_visitor.h
+iostream
+-
+cassert
+-
+ast.h
+/home/halli/Documents/TurboPascal/ast.h
+
+/home/halli/Documents/TurboPascal/sa_visitor.h
+ast.h
+/home/halli/Documents/TurboPascal/ast.h
+
 /home/halli/Documents/TurboPascal/symbol_table.h
 string
+-
+sstream
 -
 map
 -

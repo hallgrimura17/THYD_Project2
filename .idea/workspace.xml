@@ -12,7 +12,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c7f85c9-bdfd-42c2-a1e7-88e6d0456abf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/TurboPascal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/TurboPascal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hparser.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/hparser.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lexer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lexer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser.h" beforeDir="false" afterPath="$PROJECT_DIR$/parser.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symbol_table.h" beforeDir="false" afterPath="$PROJECT_DIR$/symbol_table.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test1.pas" beforeDir="false" afterPath="$PROJECT_DIR$/test/test1.pas" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -134,7 +141,7 @@
       <workItem from="1571103727150" duration="2948000" />
       <workItem from="1571128439428" duration="4285000" />
       <workItem from="1571132754098" duration="541000" />
-      <workItem from="1571329888511" duration="6723000" />
+      <workItem from="1571329888511" duration="15411000" />
     </task>
     <servers />
   </component>
