@@ -361,6 +361,7 @@ FunctionDeclNode* HParser::function_declaration() {
   auto block_node = block();
   match_token(LNG::TN::t_semicolon);
   scope_ = "";
+  
   return new FunctionDeclNode(identifier, params, simple_type_, block_node);
   /* TO DO: Implement ... */
   /* Note that in all methods that you are to implement, you most likely have to change the return value. */
