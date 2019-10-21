@@ -1,3 +1,0 @@
-/home/halli/Documents/TurboPascal/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/halli/Documents/TurboPascal/cmake-build-debug/CMakeFiles/TurboPascal.dir
-/home/halli/Documents/TurboPascal/cmake-build-debug/CMakeFiles/edit_cache.dir
