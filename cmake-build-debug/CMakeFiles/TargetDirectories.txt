@@ -1,3 +1,0 @@
-/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/CMakeFiles/TurboPascal.dir
-/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/CMakeFiles/edit_cache.dir
