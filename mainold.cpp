@@ -41,7 +41,7 @@ int main( int argc, char* argv[] ) {
   if (argc >= 2 && string(argv[1]) == "-b") {
     use_bison = true;
   }
-  string filename("test/test2.pas");
+  string filename("test/test1.pas");
   if (argc >= 3) {
     filename = argv[2];
   }
@@ -65,12 +65,6 @@ int main( int argc, char* argv[] ) {
   cout << "====> PARSING FILE " << filename
        << " USING PARSER " << parser->get_name() << endl;
   parser->parse();
-  cout << "====> SymbolTable" << endl;
-  SymbolTable* st = parser->get_SymbolTable();
-  for ( auto entry : st->get() ) {
-    cout << entry.first << ' ' << entry.second.str() << endl;
-  }
-
   cout << "====> AST" << endl;
   Node *ast = parser->get_AST();
 

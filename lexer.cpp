@@ -145,7 +145,10 @@ void Lexer::process_number( Token& token )
     if ( c_ == 'E' ) {
         token.text.push_back( c_ );
         c_next();
-        if ( c_ == '+' || c_ == '-' ) { token.text.push_back(c_); c_next(); }
+        if ( c_ == '+' || c_ == '-' ) {
+            token.text.push_back( c_ );
+            c_next();
+        }
         if ( isdigit( c_ ) ) {
             process_digits( token );
         }

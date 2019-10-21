@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="TurboPascal"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TurboPascal">
+				<Option output="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/TurboPascal" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/Makefile&quot;  VERBOSE=1 TurboPascal"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TurboPascal/fast">
+				<Option output="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/TurboPascal" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/Makefile&quot;  VERBOSE=1 TurboPascal/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/ast.h">
+			<Option target="TurboPascal"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/common.h">
+			<Option target="TurboPascal"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/hparser.cpp">
+			<Option target="TurboPascal"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/hparser.h">
+			<Option target="TurboPascal"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/language.cpp">
+			<Option target="TurboPascal"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/language.h">
+			<Option target="TurboPascal"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/lexer.cpp">
+			<Option target="TurboPascal"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/lexer.h">
+			<Option target="TurboPascal"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/main.cpp">
+			<Option target="TurboPascal"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/parser.h">
+			<Option target="TurboPascal"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/print_visitor.h">
+			<Option target="TurboPascal"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/sa_visitor.cpp">
+			<Option target="TurboPascal"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/sa_visitor.h">
+			<Option target="TurboPascal"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/symbol_table.h">
+			<Option target="TurboPascal"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/sindr/Dropbox/HR/Semester5/THYD/THYD_Project2/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -2,6 +2,7 @@
 #define TURBOPASCAL_SYMBOLTABLE_H
 
 #include <string>
+#include <sstream>
 #include <map>
 #include "language.h"
 #include "common.h"
@@ -17,6 +18,19 @@ class SymbolTable {
     EntryType entry_type;
     std::string signature;
     Language::DataType data_type;
+
+    const std::string str() {
+        const std::map<EntryType, const char*> enum_to_text {
+            { EntryType::sVariable, "sVariable" },
+            { EntryType::sFunction, "sFunction" },
+            { EntryType::sProcedure, "sProcedure" }
+        };
+        auto it = enum_to_text.find(entry_type);
+        std::string s = it->second;
+        std::stringstream ss;
+        ss << s << ' ' << signature << ' ' << data_type.str();
+        return ss.str();
+    }
   };
 
   static std::string key(const std::string &scope, const std::string &name) {
@@ -63,6 +77,8 @@ class SymbolTable {
   void clear() {
     table_.clear();
   }
+
+  std::map<std::string, Entry> get() { return table_; }
 
  private:
   std::map<std::string, Entry> table_;

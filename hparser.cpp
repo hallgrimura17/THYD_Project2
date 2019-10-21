@@ -134,7 +134,7 @@ VariableNode* HParser::variable_lvalue(SymbolTable::Entry& entry, const string& 
     expr = expression();
     match_token(LNG::TN::t_rbracket);
   }
-  return new VariableNode(variable_name, nullptr);
+  return new VariableNode(variable_name, expr);
 }
 
 
@@ -312,7 +312,13 @@ ProcedureDeclNode* HParser::procedure_declaration() {
   scope_ = identifier;
   match_token(LNG::TN::t_identifier);
   auto params = optional_parameters();
-  symbol_table_.add_procedure(identifier, "");   // TO DO: Implement ... set signature
+  string signature = identifier;
+  if(params != NULL){
+    for(auto s: params->get_declarations()){
+      signature += "::" + s->get_data_type().str();
+    } 
+  }
+  symbol_table_.add_procedure(identifier, signature);
   match_token(LNG::TN::t_semicolon);
   auto block_node = block();
   match_token(LNG::TN::t_semicolon);
@@ -324,27 +330,35 @@ ProcedureDeclNode* HParser::procedure_declaration() {
 //////////////////////////////////////////////////////////////////////////////
 
 CallableDeclarationsNode* HParser::callable_declarations() {
-
   list<CallableDeclNode *> declarations;
-  if(match_token_if(LNG::TN::t_procedure)){
+  while (token(LNG::TN::t_procedure) || token(LNG::TN::t_function)) {
+    if(token(LNG::TN::t_procedure)) {
+      declarations.push_back(procedure_declaration());
+    }
+    else {
+      declarations.push_back(function_declaration());
+    }
+    
   }
-  /* TO DO: Implement ... */
-
   return new CallableDeclarationsNode(declarations);
 }
 
 
 VariableDeclarationsNode* HParser::optional_parameters() {
-  /* TO DO: Implement ... */
-  /* Note that in all methods that you are to implement, you most likely have to change the return value. */
+  if(match_token_if(LNG::TN::t_lparenthesis)){
+    list<VariableDeclNode*> parameter_lists;
+    do {
+      parameter_lists.push_back(parameter_list());
+    } while (match_token_if(LNG::TN::t_semicolon));
+    match_token(LNG::TN::t_rparenthesis);
+    return new VariableDeclarationsNode(parameter_lists);
+  }
   return nullptr;
 }
 
 
 VariableDeclNode* HParser::parameter_list() {
-  /* TO DO: Implement ... */
-  /* Note that in all methods that you are to implement, you most likely have to change the return value. */
-  return nullptr;
+  return variable_declaration();
 }
 
 
@@ -354,26 +368,25 @@ FunctionDeclNode* HParser::function_declaration() {
   scope_ = identifier;
   match_token(LNG::TN::t_identifier);
   auto params = optional_parameters();
-  symbol_table_.add_function(identifier, params->get_declarations());   // TO DO: Implement ... set signature
-  match_token(LNG::TN::t_semicolon);
-  auto simple_type_ = simple_type();
+  string signature = identifier;
+  if(params != NULL){
+    for(auto s: params->get_declarations()){
+      signature += "::" + s->get_data_type().str();
+    } 
+  }
+  match_token(LNG::TN::t_colon);  
+  auto simple_type = type();
+  symbol_table_.add_function(identifier, signature, simple_type);
   match_token(LNG::TN::t_semicolon);
   auto block_node = block();
   match_token(LNG::TN::t_semicolon);
   scope_ = "";
-  
-  return new FunctionDeclNode(identifier, params, simple_type_, block_node);
-  /* TO DO: Implement ... */
-  /* Note that in all methods that you are to implement, you most likely have to change the return value. */
-
-  return nullptr;
+  return new FunctionDeclNode(identifier, params, block_node, simple_type);
 }
 
 
 BlockNode* HParser::block() {
-  /* TO DO: Implement ... */
-  /* Note that in all methods that you are to implement, you most likely have to change the return value. */
-  return nullptr;
+  return new BlockNode(variable_declarations(), compound_statement());
 }
 
 
@@ -397,14 +410,16 @@ ProcedureCallStmtNode* HParser::procedure_call_statement(const string &identifie
 }
 
 WhileStmtNode* HParser::while_statement() {
-  /* TO DO: Implement ... */
-  /* Note that in all methods that you are to implement, you most likely have to change the return value. */
-  return nullptr;
+  match_token(LNG::TN::t_while);
+  auto expr = expression();
+  match_token(LNG::TN::t_do);
+  auto stmt = statement();
+  return new WhileStmtNode(expr, stmt);
 }
 
 
 VariableExprNode* HParser::variable_rvalue(SymbolTable::Entry& entry ) {
-  /* TO DO: Implement ... */
+
   return nullptr;
 }
 
@@ -427,56 +442,64 @@ ExprNode* HParser::simple_expression() {
 
 
 ExprNode* HParser::term() {
-  /* TO DO: Implement ... */
-  /* Note that in all methods that you are to implement, you most likely have to change the return value. */
-  return complemented_factor();
+    static map<LNG::TN, LNG::EO> mult_op = {
+      {LNG::TN::t_multiply, LNG::EO::o_multiply},
+      {LNG::TN::t_divide, LNG::EO::o_divide},
+      {LNG::TN::t_div, LNG::EO::o_div},
+      {LNG::TN::t_and, LNG::EO::o_and}};
+
+  auto compf = complemented_factor();
+  auto it = operator_in(mult_op);
+  while (it != mult_op.end()) {
+    auto compfr = complemented_factor();
+    compf = new OpExprNode(it->second, compf, compfr);
+    it = operator_in(mult_op);
+  }
+  return compf;
 }
 
 
 ExprNode* HParser::complemented_factor() {
-  /* TO DO: Implement ... */
-  /* Note that in all methods that you are to implement, you most likely have to change the return value. */
   if(match_token_if(LNG::TN::t_not)) {
-    auto factor = signed_factor();
-    return new OpExprNode(LNG::EO::o_not, nullptr, factor);
+    return new OpExprNode(LNG::EO::o_not, nullptr, signed_factor());
   }
   return signed_factor();
 }
 
 
 ExprNode* HParser::signed_factor() {
-  /* TO DO: Implement ... */
-  /* Note that in all methods that you are to implement, you most likely have to change the return value. */
-  auto factorl = factor();
-  ExprNode* factorr = NULL;
   if(match_token_if(LNG::TN::t_plus) ){
-    factorr = factor();
-    return new OpExprNode(LNG::EO::o_plus, factorl, factorr);
+    return new OpExprNode(LNG::EO::o_plus, nullptr, factor());
   }
-  if(match_token_if(LNG::TN::t_minus) ){
-    factorr = factor();
-    return new OpExprNode(LNG::EO::o_minus, factorl, factorr);
+  else if(match_token_if(LNG::TN::t_minus) ){
+    return new OpExprNode(LNG::EO::o_minus, nullptr, factor());
   }
-  return factorl;
+  return factor();
 }
 
 
 BooleanExprNode* HParser::boolean_constant() {
-  /* TO DO: Implement ... */
-  /* Note that in all methods that you are to implement, you most likely have to change the return value. */
-  return nullptr;
+  if(match_token_if(LNG::TN::t_true)){
+    return new BooleanExprNode(true);
+  }
+  else {
+    return new BooleanExprNode(false);
+  }
 }
 
 
 RealExprNode* HParser::real_constant() {
-  /* TO DO: Implement ... */
-  /* Note that in all methods that you are to implement, you most likely have to change the return value. */
-  return nullptr;
+    double number = 0;
+  if (token_.name == LNG::TN::t_real_l) {
+    number = std::stoi(token_.text);
+    match_token(LNG::TN::t_real_l);
+  } else {
+    error(token_.loc, "Expected real constant.");
+  }
+  return new RealExprNode(number);
 }
 
 
 FunctionCallExprNode* HParser::function_call(const string &identifier ) {
-  /* TO DO: Implement ... */
-  /* Note that in all methods that you are to implement, you most likely have to change the return value. */
   return nullptr;
 }

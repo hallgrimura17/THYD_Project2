@@ -24,6 +24,9 @@ class Parser {
   // Return the root node of the abstract syntax tree.
   AST::Node* get_AST( ) { return ast_; }
 
+  // Access the symbol table.
+  SymbolTable* get_SymbolTable( ) { return &symbol_table_; }
+
   // Destructor.
   virtual ~Parser() = default;
 
@@ -31,6 +34,7 @@ class Parser {
   std::istream& is_;
   bool debug_lexer_;
   bool debug_parser_;
+  SymbolTable symbol_table_;
   AST::Node *ast_;
 };
 #endif //TURBOPASCAL_PARSER_H
