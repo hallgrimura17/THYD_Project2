@@ -1,4 +1,4 @@
-- [ ] Appendix	- Grammar
+Appendix - Grammar
 - [ ] ``` <program> ::= program <identifier> ; <main	block> . ```
 - [ ] ``` <main	block> ::= <variable	declarations> <callable declarations> ``` <statements>
 - [ ] ``` <variable	declarations> ::= 		<empty> ``` 
@@ -64,4 +64,4 @@
 - [ ] ``` <real	constant> ::= <real>```
 - [ ] ``` <boolean	constant> ::= true | false```
 - [ ] ``` <string constant> ::= <string>```
-- [ ] ``` <empty> ::=```
+- [X] ``` <empty> ::=```

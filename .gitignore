@@ -32,5 +32,4 @@
 
 # Folders to ignore
 /.idea/*
-/cmake-build-debug/*
-/test/*
+
