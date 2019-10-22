@@ -41,7 +41,7 @@ int main( int argc, char* argv[] ) {
   if (argc >= 2 && string(argv[1]) == "-b") {
     use_bison = true;
   }
-  string filename("test/test2.pas");
+  string filename("test/test1.pas");
   if (argc >= 3) {
     filename = argv[2];
   }
