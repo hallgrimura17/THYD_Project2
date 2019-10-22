@@ -32,4 +32,6 @@
 
 # Folders to ignore
 /.idea/*
-
+tpparser.cpp
+tpparser.h
+location.hh
