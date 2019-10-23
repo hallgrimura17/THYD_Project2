@@ -31,6 +31,7 @@
 *.out
 
 # Folders to ignore
+/.cmake-build-debugger/*
 /.idea/*
 tpparser.cpp
 tpparser.h
