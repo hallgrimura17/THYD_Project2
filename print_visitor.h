@@ -167,6 +167,7 @@ class PrintVisitor : public AST::Visitor {
     assert(node != nullptr);
 
     output(os_, indent_++, "(ProcedureDeclNode " + node->get_name() + "\n");
+    accept(node->get_var_decl());
     accept(node->get_block());
     output(os_, --indent_, ")\n");
   }

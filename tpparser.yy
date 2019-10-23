@@ -123,7 +123,6 @@ class BParser;
 %token  t_boolean;
 %token  t_div;
 %token  t_do;
-%token  t_else;
 %token  t_end;
 %token  t_false;
 %token  t_function;
@@ -137,7 +136,7 @@ class BParser;
 %token  t_read;
 %token  t_readln;
 %token  t_real;
-%token  t_then;
+%right  t_then t_else;
 %token  t_true;
 %token  t_var;
 %token  t_while;
@@ -273,8 +272,18 @@ list_statement:
 
 
 callable_declarations:
-    list<CallableDeclNode *> declarations;
+    t_var list_callable_declaration
+    { $$ = new AST::ProcedureDeclarationNode( $2 ); }
+    |
     { $$ = nullptr; }
+;
+
+list_callable_declaration:
+    list_callable_declaration callable_declaration
+    { $1.push_back( $2 ); $$ = $1; }
+    |
+    callable_declaration
+    { std::list<AST::CallableDeclNode*> lst; lst.push_back( $1 ); $$ = lst; }
 ;
 
 
