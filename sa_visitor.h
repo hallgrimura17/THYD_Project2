@@ -8,6 +8,7 @@
 #include <stack>
 #include "symbol_table.h"
 
+
 class SemanticAnalysisVisitor : public AST::Visitor {
   explicit SemanticAnalysisVisitor(SymbolTable &st, std::ostream &os) : st_(st) ,os_(os), indent_(0){}
 
@@ -34,7 +35,7 @@ class SemanticAnalysisVisitor : public AST::Visitor {
 
   void visit(const AST::OpExprNode *node) override {
     assert(node != nullptr);
-    
+
     output(os_, indent_++, "(OpExprNode\n");
     output(os_, indent_, "[" + op_str(node->get_op()) + "]\n");
     auto lhs = node->get_lhs();
