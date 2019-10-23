@@ -13,6 +13,12 @@
   <component name="ChangeListManager">
     <list default="true" id="3c7f85c9-bdfd-42c2-a1e7-88e6d0456abf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hparser.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/hparser.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_visitor.h" beforeDir="false" afterPath="$PROJECT_DIR$/print_visitor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sa_visitor.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sa_visitor.h" beforeDir="false" afterPath="$PROJECT_DIR$/sa_visitor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tpparser.yy" beforeDir="false" afterPath="$PROJECT_DIR$/tpparser.yy" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,9 +50,10 @@
   <component name="ProjectId" id="1S12gqHUJTJLsMgmUKJJ1rWZtCj" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CMakeLists.txt" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -55,6 +62,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
   </component>
   <component name="RecentsManager">
@@ -134,7 +142,8 @@
       <workItem from="1571103727150" duration="2948000" />
       <workItem from="1571128439428" duration="4285000" />
       <workItem from="1571132754098" duration="541000" />
-      <workItem from="1571329888511" duration="16707000" />
+      <workItem from="1571329888511" duration="19845000" />
+      <workItem from="1571767254678" duration="6940000" />
     </task>
     <servers />
   </component>
@@ -149,11 +158,24 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/hparser.h</url>
+          <line>106</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="masterDetails">
     <states>

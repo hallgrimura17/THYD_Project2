@@ -38,14 +38,12 @@ BlockNode* HParser::main_block() {
 VariableDeclarationsNode* HParser::variable_declarations( ) {
   if (match_token_if(LNG::TN::t_var)) {
     list<VariableDeclNode *> declarations;
-    auto decl = variable_declaration();
-    declarations.push_back(decl);
-    match_token(LNG::TN::t_semicolon);
-    while (token(LNG::TN::t_identifier)) {
+    VariableDeclNode* decl;
+    do {
       decl = variable_declaration();
       declarations.push_back(decl);
       match_token(LNG::TN::t_semicolon);
-    }
+    } while (token(LNG::TN::t_identifier));
     return new VariableDeclarationsNode(declarations);
   }
   return nullptr;
@@ -308,11 +306,11 @@ ExprNode* HParser::constant() {
 
 ProcedureDeclNode* HParser::procedure_declaration() {
   match_token(LNG::TN::t_procedure);
-  string identifier(token_.text);
-  scope_ = identifier;
+  string identifier = token_.text;
   match_token(LNG::TN::t_identifier);
+  scope_ = identifier;
   auto params = optional_parameters();
-  string signature = identifier;
+  string signature = "";
   if(params != NULL){
     for(auto s: params->get_declarations()){
       signature += "::" + s->get_data_type().str();
@@ -364,11 +362,11 @@ VariableDeclNode* HParser::parameter_list() {
 
 FunctionDeclNode* HParser::function_declaration() {
   match_token(LNG::TN::t_function);
-  string identifier(token_.text);
-  scope_ = identifier;
+  string identifier = token_.text;
   match_token(LNG::TN::t_identifier);
+  scope_ = identifier;
   auto params = optional_parameters();
-  string signature = identifier;
+  string signature = "";
   if(params != NULL){
     for(auto s: params->get_declarations()){
       signature += "::" + s->get_data_type().str();
@@ -404,9 +402,21 @@ IfStmtNode* HParser::if_statement() {
 
 
 ProcedureCallStmtNode* HParser::procedure_call_statement(const string &identifier ) {
-  /* TO DO: Implement ... */
-  /* Note that in all methods that you are to implement, you most likely have to change the return value. */
-  return nullptr;
+  auto entry = symbol_table_.lookup(scope_, identifier);
+  if (entry == nullptr && !scope_.empty()) {
+    entry = symbol_table_.lookup("", identifier);
+  }
+  if (entry == nullptr) {
+    error(token_.loc, "Undeclared identifier \"" + token_.text + "\"");
+  }
+  auto cal = entry->signature;
+  list<ExprNode*> exprs;
+  for(int i = 0; i < cal.length(); i++){
+    if(cal[i] == ':' && cal[i + 1] == ':'){
+      exprs.push_back(expression());
+    }
+  }
+  return new ProcedureCallStmtNode(identifier, exprs);
 }
 
 WhileStmtNode* HParser::while_statement() {
@@ -419,8 +429,15 @@ WhileStmtNode* HParser::while_statement() {
 
 
 VariableExprNode* HParser::variable_rvalue(SymbolTable::Entry& entry ) {
-
-  return nullptr;
+  ExprNode *expr = nullptr;
+  auto variable_name = token_.text;
+  match_token(LNG::TN::t_identifier);
+  if ( entry.data_type.is_array() ) {
+    match_token(LNG::TN::t_lbracket);
+    expr = expression();
+    match_token(LNG::TN::t_rbracket);
+  }
+  return new VariableExprNode(variable_name, expr);
 }
 
 
@@ -501,5 +518,25 @@ RealExprNode* HParser::real_constant() {
 
 
 FunctionCallExprNode* HParser::function_call(const string &identifier ) {
-  return nullptr;
+  
+  string id = identifier;
+  if (id.empty()){
+    id = token_.text;
+  }
+  auto entry = symbol_table_.lookup(scope_, id);
+  match_token(LNG::TN::t_identifier);
+  if (entry == nullptr && !scope_.empty()) {
+    entry = symbol_table_.lookup("", id);
+  }
+  if (entry == nullptr) {
+    error(token_.loc, "Undeclared identifier \"" + token_.text + "\"");
+  }
+  auto cal = entry->signature;
+  list<ExprNode*> exprs;
+  for(int i = 0; i < cal.length(); i++){
+    if(cal[i] == ':' && cal[i + 1] == ':'){
+      exprs.push_back(expression());
+    }
+  }
+  return new FunctionCallExprNode(id, exprs);
 }
