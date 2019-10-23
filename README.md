@@ -1,11 +1,11 @@
 Appendix - Grammar
-- [ ] ``` <program> ::= program <identifier> ; <main	block> . ```
-- [ ] ``` <main	block> ::= <variable	declarations> <callable declarations> ``` <statements>
+- [X] ``` <program> ::= program <identifier> ; <main	block> . ```
+- [X] ``` <main	block> ::= <variable	declarations> <callable declarations> ``` <statements>
 - [ ] ``` <variable	declarations> ::= 		<empty> ``` 
 |	var	<variable	declaration> ; {	<variable	declaration> ; }
 - [ ] ``` <variable	declaration> ::= <identifier> {	, <identifier> }	: <type>``` 
 - [ ] ``` <type> ::= <simple	type> |	<array	type>``` 
-- [ ] ``` <array	type> ::= array [ <index	range> ] of <simple	type>``` 
+- [X] ``` <array	type> ::= array [ <index	range> ] of <simple	type>```
 - [ ] ``` <index	range> ::= <integer	constant> .. <integer	constant>``` 
 - [ ] ``` <simple	type> ::= integer |	boolean | real``` 
 - [ ] ``` <callable	declarations> ::= {	<procedure	declaration> |	<function	``` declaration> }
@@ -22,7 +22,7 @@ Appendix - Grammar
 | <read	statement>
 |	<write	statement>
 |	<empty statement> ```
-- [ ] ``` <empty statement> ::= <empty> ```
+- [X] ``` <empty statement> ::= <empty> ```
 - [ ] ``` <assignment	statement> ::= 		<variable lvalue> := <expression>```
 |	<function	identifier> := <expression> ```
 - [ ] ``` <procedure	statement> ::= <procedure identifier> <optional	arguments>```

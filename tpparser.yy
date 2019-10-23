@@ -273,6 +273,7 @@ list_statement:
 
 
 callable_declarations:
+    list<CallableDeclNode *> declarations;
     { $$ = nullptr; }
 ;
 

@@ -164,7 +164,7 @@ StmtNode* HParser::statement() {
     stmt = if_statement();
   } else if (token(LNG::TN::t_while)) {
     stmt = while_statement();
-  } else if (token(LNG::TN::t_read) || token(LNG::TN::t_read) ) {
+  } else if (token(LNG::TN::t_read) || token(LNG::TN::t_readln) ) {
     stmt = read_statement();
   } else if (token(LNG::TN::t_write) || token( LNG::TN::t_writeln)) {
     stmt = write_statement();
@@ -419,8 +419,10 @@ WhileStmtNode* HParser::while_statement() {
 
 
 VariableExprNode* HParser::variable_rvalue(SymbolTable::Entry& entry ) {
+  VariableExprNode *expr; // likely a simple expression before value
 
-  return nullptr;
+  expr->get_expr();
+  return new VariableExprNode(*expr);
 }
 
 
