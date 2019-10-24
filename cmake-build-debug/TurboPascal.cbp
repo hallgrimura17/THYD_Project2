@@ -87,6 +87,12 @@
 		<Unit filename="/home/halli/Documents/TurboPascal/ast.h">
 			<Option target="TurboPascal"/>
 		</Unit>
+		<Unit filename="/home/halli/Documents/TurboPascal/bparser.h">
+			<Option target="TurboPascal"/>
+		</Unit>
+		<Unit filename="/home/halli/Documents/TurboPascal/cmake-build-debug/tpparser.h">
+			<Option target="TurboPascal"/>
+		</Unit>
 		<Unit filename="/home/halli/Documents/TurboPascal/common.h">
 			<Option target="TurboPascal"/>
 		</Unit>
@@ -121,6 +127,12 @@
 			<Option target="TurboPascal"/>
 		</Unit>
 		<Unit filename="/home/halli/Documents/TurboPascal/symbol_table.h">
+			<Option target="TurboPascal"/>
+		</Unit>
+		<Unit filename="/home/halli/Documents/TurboPascal/tpparser.cpp">
+			<Option target="TurboPascal"/>
+		</Unit>
+		<Unit filename="/home/halli/Documents/TurboPascal/tpparser.cpp.rule">
 			<Option target="TurboPascal"/>
 		</Unit>
 		<Unit filename="/home/halli/Documents/TurboPascal/CMakeLists.txt">

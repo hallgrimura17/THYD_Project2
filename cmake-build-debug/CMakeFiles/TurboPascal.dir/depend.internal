@@ -20,12 +20,16 @@ CMakeFiles/TurboPascal.dir/lexer.cpp.o
  /home/halli/Documents/TurboPascal/lexer.h
 CMakeFiles/TurboPascal.dir/main.cpp.o
  /home/halli/Documents/TurboPascal/ast.h
+ /home/halli/Documents/TurboPascal/bparser.h
  /home/halli/Documents/TurboPascal/common.h
  /home/halli/Documents/TurboPascal/hparser.h
  /home/halli/Documents/TurboPascal/language.h
  /home/halli/Documents/TurboPascal/lexer.h
+ /home/halli/Documents/TurboPascal/location.hh
  /home/halli/Documents/TurboPascal/main.cpp
  /home/halli/Documents/TurboPascal/parser.h
  /home/halli/Documents/TurboPascal/print_visitor.h
  /home/halli/Documents/TurboPascal/sa_visitor.h
  /home/halli/Documents/TurboPascal/symbol_table.h
+ /home/halli/Documents/TurboPascal/tpparser.h
+CMakeFiles/TurboPascal.dir/tpparser.cpp.o

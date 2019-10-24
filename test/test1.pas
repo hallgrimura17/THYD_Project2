@@ -1,6 +1,6 @@
 Program Test1;
 var
-    n: Integer;
+    m: Integer;
     a, b: Integer;
     r: Real;
     t: array [ 1 .. 5 ] of Boolean;

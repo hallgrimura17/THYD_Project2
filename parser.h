@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include "ast.h"
+#include "symbol_table.h"
 
 class Parser {
  public:

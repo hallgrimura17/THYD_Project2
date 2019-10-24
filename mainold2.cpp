@@ -3,10 +3,11 @@
 #include <iomanip>
 #include "language.h"
 #include "hparser.h"
-#include "bparser.h"
 #include "ast.h"
 #include "print_visitor.h"
 #include "sa_visitor.h"
+
+// NOTE: BParser will be released shortly.
 
 using namespace AST;
 
@@ -55,7 +56,7 @@ int main( int argc, char* argv[] ) {
   // Instantiate the right parser.
   Parser *parser;
   if (use_bison) {
-    parser = new BParser( ifs, false, false); // Change flags to true for debugging.
+    //parser = new BParser(file, false, false); // Change flags to true for debugging.
   } else {
     parser = new HParser(ifs, false, false);
   }

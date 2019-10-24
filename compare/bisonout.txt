@@ -1,0 +1,56 @@
+====> AST
+(ProgramNode SimpleTest
+  (BlockNode
+    (VariableDeclarationsNode
+      (VarDeclNode
+         n integer
+      )
+      (VarDeclNode
+         i integer
+      )
+    )
+    (CompoundStmtNode
+      (AssignmentStmtNode
+        (VariableNode n)
+        (OpExprNode
+          [+]
+          (OpExprNode
+            [+]
+            (OpExprNode
+              [+]
+              (OpExprNode
+                [+]
+                (IntegerExprNode 10)
+                (IntegerExprNode 12)
+              )
+              (IntegerExprNode 13)
+            )
+            (IntegerExprNode 14)
+          )
+          (IntegerExprNode 15)
+        )
+      )
+      (IfStmtNode
+        (OpExprNode
+          [<]
+          (IntegerExprNode 1)
+          (IntegerExprNode 2)
+        )
+        (AssignmentStmtNode
+          (VariableNode i)
+          (IntegerExprNode 1)
+        )
+        (AssignmentStmtNode
+          (VariableNode i)
+          (IntegerExprNode 2)
+        )
+      )
+      (WriteStmtNode Ln
+        (IntegerExprNode 20)
+      )
+    )
+  )
+)
+
+Process finished with exit code 0
+

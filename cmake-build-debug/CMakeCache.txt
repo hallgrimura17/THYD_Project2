@@ -14,6 +14,9 @@
 # EXTERNAL cache entries
 ########################
 
+//path to the bison executable
+BISON_EXECUTABLE:FILEPATH=/usr/bin/bison
+
 //Path to a program.
 CMAKE_AR:FILEPATH=/usr/bin/ar
 
@@ -228,6 +231,8 @@ TurboPascal_SOURCE_DIR:STATIC=/home/halli/Documents/TurboPascal
 # INTERNAL cache entries
 ########################
 
+//ADVANCED property for variable: BISON_EXECUTABLE
+BISON_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
 //This is the directory where this CMakeCache.txt was created
@@ -373,6 +378,8 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding BISON
+FIND_PACKAGE_MESSAGE_DETAILS_BISON:INTERNAL=[/usr/bin/bison][v3.3.2()]
 //ADVANCED property for variable: ProcessorCount_cmd_nproc
 ProcessorCount_cmd_nproc-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_sysctl

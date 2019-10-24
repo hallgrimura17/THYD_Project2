@@ -354,7 +354,6 @@ VariableDeclarationsNode* HParser::optional_parameters() {
   return nullptr;
 }
 
-
 VariableDeclNode* HParser::parameter_list() {
   return variable_declaration();
 }
@@ -393,7 +392,7 @@ IfStmtNode* HParser::if_statement() {
   auto expr_ = expression();
   match_token(LNG::TN::t_then);
   auto stmt = statement();
-  StmtNode* elseStmt = NULL;
+  StmtNode* elseStmt = nullptr;
   if(match_token_if(LNG::TN::t_else)){
     elseStmt = statement();
   }
@@ -402,21 +401,19 @@ IfStmtNode* HParser::if_statement() {
 
 
 ProcedureCallStmtNode* HParser::procedure_call_statement(const string &identifier ) {
-  auto entry = symbol_table_.lookup(scope_, identifier);
-  if (entry == nullptr && !scope_.empty()) {
-    entry = symbol_table_.lookup("", identifier);
+  list<ExprNode*> args;
+  string variable_name = identifier;
+  if ( identifier.empty()){
+    variable_name = token_.text;
   }
-  if (entry == nullptr) {
-    error(token_.loc, "Undeclared identifier \"" + token_.text + "\"");
-  }
-  auto cal = entry->signature;
-  list<ExprNode*> exprs;
-  for(int i = 0; i < cal.length(); i++){
-    if(cal[i] == ':' && cal[i + 1] == ':'){
-      exprs.push_back(expression());
-    }
-  }
-  return new ProcedureCallStmtNode(identifier, exprs);
+  match_token(LNG::TN::t_identifier);
+  match_token(LNG::TN::t_lparenthesis);
+  do {
+    args.push_back(expression());
+  }while(match_token_if(LNG::TN::t_semicolon));
+  match_token(LNG::TN::t_rparenthesis);
+
+  return new ProcedureCallStmtNode(identifier, args);
 }
 
 WhileStmtNode* HParser::while_statement() {
@@ -430,7 +427,7 @@ WhileStmtNode* HParser::while_statement() {
 
 VariableExprNode* HParser::variable_rvalue(SymbolTable::Entry& entry ) {
   ExprNode *expr = nullptr;
-  auto variable_name = token_.text;
+  string variable_name = token_.text;
   match_token(LNG::TN::t_identifier);
   if ( entry.data_type.is_array() ) {
     match_token(LNG::TN::t_lbracket);
@@ -499,9 +496,13 @@ BooleanExprNode* HParser::boolean_constant() {
   if(match_token_if(LNG::TN::t_true)){
     return new BooleanExprNode(true);
   }
-  else {
+  else if (match_token_if(LNG::TN::t_false)) {
     return new BooleanExprNode(false);
   }
+  else {
+    error(token_.loc, "Expected boolean constant.");
+  }
+  return nullptr;
 }
 
 
@@ -518,25 +519,17 @@ RealExprNode* HParser::real_constant() {
 
 
 FunctionCallExprNode* HParser::function_call(const string &identifier ) {
-  
-  string id = identifier;
-  if (id.empty()){
-    id = token_.text;
+  list<ExprNode*> args;
+  string variable_name = identifier;
+  if ( identifier.empty()){
+    variable_name = token_.text;
   }
-  auto entry = symbol_table_.lookup(scope_, id);
   match_token(LNG::TN::t_identifier);
-  if (entry == nullptr && !scope_.empty()) {
-    entry = symbol_table_.lookup("", id);
-  }
-  if (entry == nullptr) {
-    error(token_.loc, "Undeclared identifier \"" + token_.text + "\"");
-  }
-  auto cal = entry->signature;
-  list<ExprNode*> exprs;
-  for(int i = 0; i < cal.length(); i++){
-    if(cal[i] == ':' && cal[i + 1] == ':'){
-      exprs.push_back(expression());
-    }
-  }
-  return new FunctionCallExprNode(id, exprs);
+  match_token(LNG::TN::t_lparenthesis);
+  do {
+    args.push_back(expression());
+  }while(match_token_if(LNG::TN::t_semicolon));
+  match_token(LNG::TN::t_rparenthesis);
+
+  return new FunctionCallExprNode(identifier, args);
 }

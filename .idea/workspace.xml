@@ -14,10 +14,25 @@
     <list default="true" id="3c7f85c9-bdfd-42c2-a1e7-88e6d0456abf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TurboPascal.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TurboPascal.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TurboPascal.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TurboPascal.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TurboPascal.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TurboPascal.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TurboPascal.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TurboPascal.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TurboPascal.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TurboPascal.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TurboPascal.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TurboPascal.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TurboPascal.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TurboPascal.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TurboPascal.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TurboPascal.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/TurboPascal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/TurboPascal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/TurboPascal.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/TurboPascal.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hparser.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/hparser.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_visitor.h" beforeDir="false" afterPath="$PROJECT_DIR$/print_visitor.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sa_visitor.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sa_visitor.h" beforeDir="false" afterPath="$PROJECT_DIR$/sa_visitor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser.h" beforeDir="false" afterPath="$PROJECT_DIR$/parser.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test1.pas" beforeDir="false" afterPath="$PROJECT_DIR$/test/test1.pas" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tpparser.yy" beforeDir="false" afterPath="$PROJECT_DIR$/tpparser.yy" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -89,7 +104,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TurboPascal" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TurboPascal" TARGET_NAME="TurboPascal" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="TurboPascal" RUN_TARGET_NAME="TurboPascal">
+    <configuration name="TurboPascal" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-b" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TurboPascal" TARGET_NAME="TurboPascal" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="TurboPascal" RUN_TARGET_NAME="TurboPascal">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -143,7 +158,7 @@
       <workItem from="1571128439428" duration="4285000" />
       <workItem from="1571132754098" duration="541000" />
       <workItem from="1571329888511" duration="19845000" />
-      <workItem from="1571767254678" duration="6940000" />
+      <workItem from="1571767254678" duration="34609000" />
     </task>
     <servers />
   </component>
