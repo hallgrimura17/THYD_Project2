@@ -1,56 +1,371 @@
 ====> AST
-(ProgramNode SimpleTest
+(ProgramNode Program
   (BlockNode
     (VariableDeclarationsNode
       (VarDeclNode
          n integer
       )
       (VarDeclNode
-         i integer
+         a  b integer
+      )
+      (VarDeclNode
+         r real
+      )
+      (VarDeclNode
+         t boolean[1..5]
+      )
+    )
+    (CallableDeclarationsNode
+      (FunctionDeclNode Factorial
+        (BlockNode
+          (CompoundStmtNode
+            (IfStmtNode
+              (OpExprNode
+                [<=]
+                (IntegerExprNode 0)
+                (IntegerExprNode 1)
+              )
+              (AssignmentStmtNode
+                (VariableNode Factorial)
+                (IntegerExprNode 1)
+              )
+              (AssignmentStmtNode
+                (VariableNode Factorial)
+                (OpExprNode
+                  [*]
+                  (VariableExprNode n)
+                  (FunctionCallExprNode Factorial
+                    (OpExprNode
+                      [-]
+                      (VariableExprNode n)
+                      (IntegerExprNode 1)
+                    )
+                  )
+                )
+              )
+            )
+            (AssignmentStmtNode
+              (VariableNode n)
+              (OpExprNode
+                [*]
+                (VariableExprNode n)
+                (FunctionCallExprNode Factorial
+                  (OpExprNode
+                    [-]
+                    (VariableExprNode n)
+                    (IntegerExprNode 1)
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+      (ProcedureDeclNode Print
+        (BlockNode
+          (CompoundStmtNode
+            (WriteStmtNode Ln
+              (StringExprNode 'Hello world!')
+            )
+          )
+        )
       )
     )
     (CompoundStmtNode
       (AssignmentStmtNode
-        (VariableNode n)
+        (VariableNode t)
+        (VariableExprNode t)
+      )
+      (AssignmentStmtNode
+        (VariableNode a)
         (OpExprNode
           [+]
-          (OpExprNode
-            [+]
-            (OpExprNode
-              [+]
-              (OpExprNode
-                [+]
-                (IntegerExprNode 10)
-                (IntegerExprNode 12)
-              )
-              (IntegerExprNode 13)
-            )
-            (IntegerExprNode 14)
-          )
-          (IntegerExprNode 15)
-        )
-      )
-      (IfStmtNode
-        (OpExprNode
-          [<]
           (IntegerExprNode 1)
-          (IntegerExprNode 2)
-        )
-        (AssignmentStmtNode
-          (VariableNode i)
-          (IntegerExprNode 1)
-        )
-        (AssignmentStmtNode
-          (VariableNode i)
           (IntegerExprNode 2)
         )
       )
       (WriteStmtNode Ln
-        (IntegerExprNode 20)
+        (VariableExprNode a)
       )
+      (AssignmentStmtNode
+        (VariableNode b)
+        (OpExprNode
+          [div]
+          (OpExprNode
+            [*]
+            (IntegerExprNode 3)
+            (VariableExprNode a)
+          )
+          (IntegerExprNode 2)
+        )
+      )
+      (WriteStmtNode Ln
+        (VariableExprNode b)
+      )
+      (IfStmtNode
+        (OpExprNode
+          [=]
+          (VariableExprNode a)
+          (VariableExprNode b)
+        )
+        (AssignmentStmtNode
+          (VariableNode a)
+          (OpExprNode
+            [-]
+            (VariableExprNode a)
+          )
+        )
+        (AssignmentStmtNode
+          (VariableNode b)
+          (OpExprNode
+            [-]
+            (VariableExprNode a)
+          )
+        )
+      )
+      (WriteStmtNode Ln
+        (VariableExprNode a)
+      )
+      (WriteStmtNode Ln
+        (VariableExprNode b)
+      )
+      (AssignmentStmtNode
+        (VariableNode n)
+        (IntegerExprNode 1)
+      )
+      (WhileStmtNode
+        (OpExprNode
+          [<]
+          (VariableExprNode n)
+          (IntegerExprNode 4)
+        )
+        (CompoundStmtNode
+          (WriteStmtNode Ln
+            (VariableExprNode n)
+          )
+          (AssignmentStmtNode
+            (VariableNode a)
+            (OpExprNode
+              [/]
+              (OpExprNode
+                [+]
+                (VariableExprNode a)
+                (IntegerExprNode 1)
+              )
+              (IntegerExprNode 3)
+            )
+          )
+          (AssignmentStmtNode
+            (VariableNode b)
+            (OpExprNode
+              [-]
+              (VariableExprNode b)
+              (IntegerExprNode 1)
+            )
+          )
+          (AssignmentStmtNode
+            (VariableNode n)
+            (OpExprNode
+              [+]
+              (VariableExprNode n)
+              (IntegerExprNode 1)
+            )
+          )
+          (EmptyStmtNode)
+        )
+      )
+      (WriteStmtNode Ln
+        (VariableExprNode n)
+      )
+      (WriteStmtNode Ln
+        (VariableExprNode n)
+      )
+      (EmptyStmtNode)
+    )
+  )
+)====> AST
+(ProgramNode Program
+  (BlockNode
+    (VariableDeclarationsNode
+      (VarDeclNode
+         n integer
+      )
+      (VarDeclNode
+         a  b integer
+      )
+      (VarDeclNode
+         r real
+      )
+      (VarDeclNode
+         t boolean[1..5]
+      )
+    )
+    (CallableDeclarationsNode
+      (FunctionDeclNode Factorial
+        (BlockNode
+          (CompoundStmtNode
+            (IfStmtNode
+              (OpExprNode
+                [<=]
+                (IntegerExprNode 0)
+                (IntegerExprNode 1)
+              )
+              (AssignmentStmtNode
+                (VariableNode Factorial)
+                (IntegerExprNode 1)
+              )
+              (AssignmentStmtNode
+                (VariableNode Factorial)
+                (OpExprNode
+                  [*]
+                  (VariableExprNode n)
+                  (FunctionCallExprNode Factorial
+                    (OpExprNode
+                      [-]
+                      (VariableExprNode n)
+                      (IntegerExprNode 1)
+                    )
+                  )
+                )
+              )
+            )
+            (AssignmentStmtNode
+              (VariableNode n)
+              (OpExprNode
+                [*]
+                (VariableExprNode n)
+                (FunctionCallExprNode Factorial
+                  (OpExprNode
+                    [-]
+                    (VariableExprNode n)
+                    (IntegerExprNode 1)
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+      (ProcedureDeclNode Print
+        (BlockNode
+          (CompoundStmtNode
+            (WriteStmtNode Ln
+              (StringExprNode 'Hello world!')
+            )
+          )
+        )
+      )
+    )
+    (CompoundStmtNode
+      (AssignmentStmtNode
+        (VariableNode t)
+        (VariableExprNode t)
+      )
+      (AssignmentStmtNode
+        (VariableNode a)
+        (OpExprNode
+          [+]
+          (IntegerExprNode 1)
+          (IntegerExprNode 2)
+        )
+      )
+      (WriteStmtNode Ln
+        (VariableExprNode a)
+      )
+      (AssignmentStmtNode
+        (VariableNode b)
+        (OpExprNode
+          [div]
+          (OpExprNode
+            [*]
+            (IntegerExprNode 3)
+            (VariableExprNode a)
+          )
+          (IntegerExprNode 2)
+        )
+      )
+      (WriteStmtNode Ln
+        (VariableExprNode b)
+      )
+      (IfStmtNode
+        (OpExprNode
+          [=]
+          (VariableExprNode a)
+          (VariableExprNode b)
+        )
+        (AssignmentStmtNode
+          (VariableNode a)
+          (OpExprNode
+            [-]
+            (VariableExprNode a)
+          )
+        )
+        (AssignmentStmtNode
+          (VariableNode b)
+          (OpExprNode
+            [-]
+            (VariableExprNode a)
+          )
+        )
+      )
+      (WriteStmtNode Ln
+        (VariableExprNode a)
+      )
+      (WriteStmtNode Ln
+        (VariableExprNode b)
+      )
+      (AssignmentStmtNode
+        (VariableNode n)
+        (IntegerExprNode 1)
+      )
+      (WhileStmtNode
+        (OpExprNode
+          [<]
+          (VariableExprNode n)
+          (IntegerExprNode 4)
+        )
+        (CompoundStmtNode
+          (WriteStmtNode Ln
+            (VariableExprNode n)
+          )
+          (AssignmentStmtNode
+            (VariableNode a)
+            (OpExprNode
+              [/]
+              (OpExprNode
+                [+]
+                (VariableExprNode a)
+                (IntegerExprNode 1)
+              )
+              (IntegerExprNode 3)
+            )
+          )
+          (AssignmentStmtNode
+            (VariableNode b)
+            (OpExprNode
+              [-]
+              (VariableExprNode b)
+              (IntegerExprNode 1)
+            )
+          )
+          (AssignmentStmtNode
+            (VariableNode n)
+            (OpExprNode
+              [+]
+              (VariableExprNode n)
+              (IntegerExprNode 1)
+            )
+          )
+          (EmptyStmtNode)
+        )
+      )
+      (WriteStmtNode Ln
+        (VariableExprNode n)
+      )
+      (WriteStmtNode Ln
+        (VariableExprNode n)
+      )
+      (EmptyStmtNode)
     )
   )
 )
-
-Process finished with exit code 0
-
