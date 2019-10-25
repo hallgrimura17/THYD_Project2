@@ -60,6 +60,9 @@ class SemanticAnalysisVisitor : public AST::Visitor {
     std::string lhsPop = s_.top();
     s_.pop();
 
+    //ST lookup
+    //std::cout << "Lookup: " << st_.lookup() << std::endl;
+
     std::cout << "lhs: " << lhsPop << " rhs: " << rhsPop << std::endl;
     if(lhsPop == "VariableExprNode" && (rhsPop == "IntegerExprNode" || rhsPop == "RealExprNode")){
       s_.push("VariableExprNode");
@@ -91,6 +94,10 @@ class SemanticAnalysisVisitor : public AST::Visitor {
 
   void visit(const AST::VariableExprNode *node) override {
     assert(node != nullptr);
+    std::cout << "Variable Expr Node: " << std::endl;
+
+    auto varexpr = st_.lookup(scope_, node->get_name());
+    std::cout << "Var expr: " << varexpr->str() << std::endl;
     s_.push("VariableExprNode");
     //std::cout << "GET EXPR: " << node->get_name() << std::endl;
     //s_.push("VariableExprNode");
@@ -100,11 +107,11 @@ class SemanticAnalysisVisitor : public AST::Visitor {
 
   void visit(const AST::FunctionCallExprNode *node) override {
     assert(node != nullptr);
+    std::cout << "Function Call Expr Node: " << std::endl;
     s_.push("FunctionCallExprNode");
     //output(os_, indent_++, "(FunctionCallExprNode " + node->get_name() + "\n");
     for (auto expr : node->get_arguments()) {
       // compare func call arguements types to func decleration arguements
-
       accept(expr);
     }
     //output(os_, --indent_, ")\n");
@@ -151,7 +158,8 @@ class SemanticAnalysisVisitor : public AST::Visitor {
 
   void visit(const AST::IfStmtNode *node) override {
     assert(node != nullptr);
-    std::cout << "If Stmt Node: " << std::endl;
+    //std::cout << "If Stmt Node: " << std::endl;
+    scope_ = "conditional statement scope";
     //s_.push("IfStmtNode");
     //output(os_, indent_++, "(IfStmtNode\n");
     accept(node->get_expr());
@@ -216,19 +224,23 @@ class SemanticAnalysisVisitor : public AST::Visitor {
     for (const auto &id : node->get_identifiers()) {
       //output(os_, " " + id + " ");
       std::cout << node->get_data_type().str() << std::endl;
-      /*if(node->get_data_type().str() == "integer") {
+      if(node->get_data_type().str() == "integer") {
+        st_.add(scope_, id, SymbolTable::EntryType::sVariable, "",node->get_data_type());
         s_.push("IntegerExprNode");
       }
       else if(node->get_data_type().str() == "real") {
+        st_.add(scope_, id, SymbolTable::EntryType::sVariable, "",node->get_data_type());
         s_.push("RealExprNode");
       }
       else if(node->get_data_type().str() == "boolean") {
-        std::cout << "id: "<< id << std::endl;
+        //std::cout << "id: "<< id << std::endl;
+        st_.add(scope_, id, SymbolTable::EntryType::sVariable, "",node->get_data_type());
         s_.push("BooleanExprNode");
       }
       else if(node->get_data_type().str() == "string") {
+        st_.add(scope_, id, SymbolTable::EntryType::sVariable, "",node->get_data_type());
         s_.push("StringExprNode");
-      }*/
+      }
     }
     //output(os_, node->get_data_type().str() + "\n"); // NOTE.
     //output(os_, --indent_, ")\n");
@@ -245,12 +257,16 @@ class SemanticAnalysisVisitor : public AST::Visitor {
 
   void visit(const AST::FunctionDeclNode *node) override {
     assert(node != nullptr);
+    std::string tmpScope = scope_;
     scope_ = node->get_name();
+    std::cout << "Scope: " << scope_ << std::endl;
     //std::cout << "scope name: " << scope_ << std::endl;
     //output(os_, indent_++, "(FunctionDeclNode " + node->get_name() + "\n");
     accept(node->get_block());
     //output(os_, --indent_, ")\n");
     //st_.add(scope_, node->get_name(), , node->get_var_decl(), node->get_data_type());
+    scope_ = tmpScope;
+    std::cout << "Scope: " << scope_ << std::endl;
   }
 
   void visit(const AST::VariableDeclarationsNode *node) override {
@@ -286,7 +302,7 @@ class SemanticAnalysisVisitor : public AST::Visitor {
 
   void visit(const AST::ProgramNode *node) override {
     assert(node != nullptr);
-
+    scope_ = node->get_name();
     //output(os_, indent_++, "(ProgramNode " + node->get_name() + "\n");
     accept(node->get_block());
     //output(os_, --indent_, ")\n");
